@@ -44,8 +44,8 @@ keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 
 -- Insert --
 -- Press jk fast to exit insert mode
--- keymap("i", "jk", "<ESC>", opts)
--- keymap("i", "kj", "<ESC>", opts)
+keymap("i", "jk", "<ESC>", opts)
+keymap("i", "kj", "<ESC>", opts)
 keymap("i", "<C-o>", "<ESC>", opts)
 
 -- Visual --
@@ -66,8 +66,25 @@ keymap("x", "K", ":m '<-2<CR>gv=gv", opts)
 keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
--- Oil ---
+-- Oil --
 keymap("n", "<leader>o", "<CMD>Oil<CR>", opts)
+
+-- fzf lua --
+-- find files
+keymap("n", "<leader>ff", "<CMD>FzfLua files<CR>", opts)
+-- live grep
+keymap("n", "<leader>fg", "<CMD>FzfLua live_grep<CR>", opts)
+-- find buffers
+keymap("n", "<leader>fb", "<CMD>FzfLua buffers<CR>", opts)
+-- code actions
+keymap("n", "<leader>ca", "<CMD>FzfLua lsp_code_actions<CR>", opts)
+
+
+-- lsp --
+-- hover
+keymap("n", "K", vim.lsp.buf.hover, opts)
+-- diagnostic
+keymap("n", "<leader>d", vim.diagnostic.open_float, opts)
 
 -- Terminal --
 -- Better terminal navigation
