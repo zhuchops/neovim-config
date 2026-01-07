@@ -45,7 +45,6 @@ keymap("n", "<A-k>", ":m .-2<CR>==", opts)
 -- Insert --
 -- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
-keymap("i", "kj", "<ESC>", opts)
 keymap("i", "<C-o>", "<ESC>", opts)
 
 -- Visual --
@@ -78,13 +77,25 @@ keymap("n", "<leader>fg", "<CMD>FzfLua live_grep<CR>", opts)
 keymap("n", "<leader>fb", "<CMD>FzfLua buffers<CR>", opts)
 -- code actions
 keymap("n", "<leader>ca", "<CMD>FzfLua lsp_code_actions<CR>", opts)
-
+-- workspace diagnostic
+keymap("n", "<leader>wd", "<CMD>FzfLua lsp_workspace_diagnostics<CR>", opts)
 
 -- lsp --
 -- hover
 keymap("n", "K", vim.lsp.buf.hover, opts)
 -- diagnostic
 keymap("n", "<leader>d", vim.diagnostic.open_float, opts)
+
+-- conform --
+-- format by key
+keymap("x", "<leader>rf",
+  function()
+    require("conform").format({
+      lsp_fallback = true,
+      async = true
+    })
+  end,
+  opts)
 
 -- Terminal --
 -- Better terminal navigation
