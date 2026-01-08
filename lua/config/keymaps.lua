@@ -88,7 +88,7 @@ keymap("n", "<leader>d", vim.diagnostic.open_float, opts)
 
 -- conform --
 -- format by key
-keymap("x", "<leader>rf",
+keymap("n", "<leader>rf",
   function()
     require("conform").format({
       lsp_fallback = true,
