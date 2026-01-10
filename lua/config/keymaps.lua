@@ -76,9 +76,17 @@ keymap("n", "<leader>fg", "<CMD>FzfLua live_grep<CR>", opts)
 -- find buffers
 keymap("n", "<leader>fb", "<CMD>FzfLua buffers<CR>", opts)
 -- code actions
-keymap("n", "<leader>ca", "<CMD>FzfLua lsp_code_actions<CR>", opts)
+keymap("n", "<leader>fa", "<CMD>FzfLua lsp_code_actions<CR>", opts)
 -- workspace diagnostic
-keymap("n", "<leader>wd", "<CMD>FzfLua lsp_workspace_diagnostics<CR>", opts)
+keymap("n", "<leader>fwd", "<CMD>FzfLua lsp_workspace_diagnostics<CR>", opts)
+-- document diagnostic
+keymap("n", "<leader>fd", "<CMD>FzfLua lsp_workspace_diagnostics<CR>", opts)
+-- find lsp document symbols
+keymap("n", "<leader>fs", "<CMD>FzfLua lsp_document_symbols<CR>", opts)
+-- find lsp workspace symbols
+keymap("n", "<leader>fws", "<CMD>FzfLua lsp_workspace_symbols<CR>", opts)
+-- find buffers
+keymap("n", "<leader>fws", "<CMD>FzfLua buffers<CR>", opts)
 
 -- lsp --
 -- hover
@@ -88,14 +96,7 @@ keymap("n", "<leader>d", vim.diagnostic.open_float, opts)
 
 -- conform --
 -- format by key
-keymap("n", "<leader>rf",
-  function()
-    require("conform").format({
-      lsp_fallback = true,
-      async = true
-    })
-  end,
-  opts)
+keymap("n", "<leader>rf", function() require("conform").format({ async = true, lsp_format = "fallback"}) end, opts)
 
 -- Terminal --
 -- Better terminal navigation
