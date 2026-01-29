@@ -10,14 +10,6 @@ keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
-
 -- Normal --
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -87,12 +79,20 @@ keymap("n", "<leader>fs", "<CMD>FzfLua lsp_document_symbols<CR>", opts)
 keymap("n", "<leader>fws", "<CMD>FzfLua lsp_workspace_symbols<CR>", opts)
 -- find buffers
 keymap("n", "<leader>fws", "<CMD>FzfLua buffers<CR>", opts)
+-- find implementations
+keymap("n", "<leader>fi", "<CMD>FzfLua lsp_implementations<CR>", opts)
 
 -- lsp --
 -- hover
 keymap("n", "K", vim.lsp.buf.hover, opts)
 -- diagnostic
 keymap("n", "<leader>d", vim.diagnostic.open_float, opts)
+-- go to definition
+keymap("n", "gd", vim.lsp.buf.definition, opts)
+-- go to implementation
+keymap("n", "gi", vim.lsp.buf.implementation, opts)
+
+keymap("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
 -- conform --
 -- format by key

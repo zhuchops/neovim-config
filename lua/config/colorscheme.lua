@@ -1,4 +1,4 @@
-local colorscheme = "dayfox"
+local colorscheme = "catppuccin-frappe"
 
 vim.o.background = "light"
 

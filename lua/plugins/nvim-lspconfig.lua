@@ -3,7 +3,7 @@ return {
   dependencies = { 
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
-    'saghen/blink.cmp',
+    "hrsh7th/cmp-nvim-lsp"
   },
 
   config = function()
@@ -18,6 +18,7 @@ return {
           },
         },
       },
+      gopls = {},
     }
 
     require("mason-lspconfig").setup({
@@ -27,7 +28,7 @@ return {
     for server, config in pairs(servers) do
       -- 1. Сливаем capabilities от blink.cmp
       -- Это критически важно для работы автодополнения
-      config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+      config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
       -- 2. Настраиваем сервер (Native Nvim 0.11+)
       -- Эта функция обновляет конфигурацию в реестре Neovim, 
