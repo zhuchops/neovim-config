@@ -1,6 +1,6 @@
-local colorscheme = "catppuccin-frappe"
+local colorscheme = "vesper"
 
-vim.o.background = "light"
+vim.o.background = "dark"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
