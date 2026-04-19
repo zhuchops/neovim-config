@@ -18,7 +18,6 @@ return {
           },
         },
       },
-      nushell = {}
     }
 
     require("mason-lspconfig").setup({

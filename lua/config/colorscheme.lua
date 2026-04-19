@@ -1,4 +1,4 @@
-local colorscheme = "vesper"
+local colorscheme = "nightfox"
 
 vim.o.background = "dark"
 

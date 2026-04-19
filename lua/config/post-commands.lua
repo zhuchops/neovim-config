@@ -11,3 +11,14 @@ vim.api.nvim_create_user_command("Format", function(args)
   end
   require("conform").format({ async = true, lsp_format = "fallback", range = range })
 end, { range = true })
+
+vim.filetype.add({
+  extension = {
+    yml = "yaml.ansible",
+    yaml = "yaml.ansible",
+  },
+  pattern = {
+    [".*/.*playbook.*%.ya?ml"] = "yaml.ansible",
+    [".*/roles/.*/.*%.ya?ml"] = "yaml.ansible",
+  },
+})
